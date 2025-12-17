@@ -1,4 +1,3 @@
--- Configurable roll range (in units)
 local ROLL_RADIUS = 500
 
 hook.Add("PlayerSay", "LocalRollCommand", function(ply, text)
@@ -13,7 +12,6 @@ hook.Add("PlayerSay", "LocalRollCommand", function(ply, text)
 			end
 		end
 
-		-- Block from global chat
 		return ""
 	end
 end)
