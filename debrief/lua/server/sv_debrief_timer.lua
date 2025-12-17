@@ -13,6 +13,7 @@ local ALLOWED_USERGROUPS = {
 }
 
 local ALLOWED_JOBS = {
+	["Flash"] = true,
 	["Clone Officer"] = true,
 	["Clone Company Commander"] = true,
 	["Clone Battalion Commander"] = true,
@@ -71,7 +72,7 @@ end)
 hook.Add("PlayerSay", "DebriefTimerChatCommand", function(ply, text)
 	local args = string.Explode(" ", text)
 
-	if args[1] == "!debrief" then
+	if args[1] == "/debrief" then
 		if not IsAllowed(ply) then
 			ply:ChatPrint("[Debrief] You don't have permission.")
 			return ""
