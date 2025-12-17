@@ -1,7 +1,7 @@
 include('shared.lua')
 
 SWEP.PrintName = "Jihad Bomb"
-SWEP.Category = "Test"
+SWEP.Category = "Custom Jihad Bomb"
 SWEP.Slot = 3
 SWEP.SlotPos = 0
 SWEP.DrawAmmo = false

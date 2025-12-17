@@ -51,7 +51,7 @@ function SWEP:PrimaryAttack()
     self.Weapon:SetNextPrimaryFire(CurTime() + 2.5)
     self.Weapon:SetNextSecondaryFire(CurTime() + 2.5)
     self.Weapon:SendWeaponAnim(ACT_VM_PRIMARYATTACK)
-    self.Owner:EmitSound("JihadBomb.Detonate2")
+    self.Owner:EmitSound("JihadBomb.Detonate")
     if (SERVER) && ply:Alive() then
         timer.Simple(4.5, function()
             if ! ply:Alive() then return end

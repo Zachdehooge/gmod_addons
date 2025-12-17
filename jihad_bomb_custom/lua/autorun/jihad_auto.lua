@@ -16,13 +16,5 @@ sound.Add({
     volume = VOL_NORM,
     pitch = PITCH_NORM,
     soundlevel = SNDLVL_NORM,
-    sound = "JihadBomb/alala.wav"
-})
-sound.Add({
-    name = "JihadBomb.Detonate2",
-    channel = CHAN_VOICE,
-    volume = VOL_NORM,
-    pitch = PITCH_NORM,
-    soundlevel = SNDLVL_NORM,
-    sound = "testing.mp3"
+    sound = "jihad.mp3"
 })
