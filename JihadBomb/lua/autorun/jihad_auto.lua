@@ -16,5 +16,5 @@ sound.Add({
     volume = VOL_NORM,
     pitch = PITCH_NORM,
     soundlevel = SNDLVL_NORM,
-    sound = "jihad.mp3"
+    sound = "testing.mp3"
 })

@@ -42,7 +42,7 @@ function SWEP:Reload()
 end
 
 function SWEP:Initialize()
-    util.PrecacheSound("jihad.mp3")
+    util.PrecacheSound("testing.mp3")
     self:SetWeaponHoldType("slam")
 end
 
