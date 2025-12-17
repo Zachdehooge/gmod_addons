@@ -1,0 +1,6 @@
+UnlitGeneric
+{ 
+	$BaseTexture "vgui/hud/kill/weapon_jihadbomb"
+	$Translucent 1
+	$Alpha 0.5
+}
