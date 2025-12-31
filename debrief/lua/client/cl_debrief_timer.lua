@@ -50,7 +50,7 @@ hook.Add("HUDPaint", "DrawDebriefTimer", function()
 		timeText,
 		"DermaLarge",
 		ScrW() / 2,
-		140,
+		90,
 		Color(255, 100, 100, 255),
 		TEXT_ALIGN_CENTER,
 		TEXT_ALIGN_TOP
