@@ -204,7 +204,7 @@ if CLIENT then
         if (cmd == "thirdperson_toggle" or cmd == "thirdperson_view") then
             local ply = LocalPlayer()
             if IsValid(ply) and not table.IsEmpty(FP_Zones) and not IsInForceFPZone(ply) then
-                chat.AddText(Color(255,100,100), "[ForceFP] ", Color(255,255,255), "Third person is only allowed inside zones!")
+                chat.AddText(Color(255,100,100), "[ForceFP] ", Color(255,255,255), "Third person is only allowed inside base!")
                 return
             end
         end
