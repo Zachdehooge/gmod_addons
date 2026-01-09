@@ -1,13 +1,12 @@
-TOOL.Category = "Utilities"
+TOOL.Category = "ForceFP"
 TOOL.Name = "#ForceFP Zone"
 TOOL.Command = nil
 TOOL.ConfigName = ""
 
 if CLIENT then
-    language.Add("#tool.forcefptool.name", "ForceFP Zone")
-    language.Add("#tool.forcefptool.desc", "Place/remove ForceFP zones using the toolgun")
+    language.Add("#tool.forcefptool.name", "ForceFP")
+    language.Add("#tool.forcefptool.desc", "Place/Remove ForceFP zones using the toolgun")
     language.Add("#tool.forcefptool.0", "Left click to place zone, right click to remove zone")
-
     showZones = true
 end
 
@@ -81,7 +80,6 @@ if SERVER then
         return false
     end
     
-    -- Load zones when server starts
     hook.Add("Initialize", "ForceFP_LoadZones", function()
         LoadZones()
     end)
@@ -100,7 +98,6 @@ if SERVER then
     TOOL.BroadcastZones = BroadcastZones
     TOOL.SaveZones = SaveZones
     
-    -- Send zones to player when they join
     hook.Add("PlayerInitialSpawn", "ForceFP_SendZones", function(ply)
         timer.Simple(1, function()
             if IsValid(ply) then
@@ -193,20 +190,17 @@ function TOOL:Reload(trace)
 end
 
 if CLIENT then
-    -- Track whether player was in zone last frame
+
     local wasInZone = false
-    local allowInternalCommand = false -- Flag to allow our internal commands
+    local allowInternalCommand = false
     
-    -- Block all third-person commands when outside zones
     local oldRunConsoleCommand = RunConsoleCommand
     
     RunConsoleCommand = function(cmd, ...)
-        -- Allow internal commands from our script
         if allowInternalCommand then
             return oldRunConsoleCommand(cmd, ...)
         end
         
-        -- Block any thirdperson commands when outside zones
         if (cmd == "thirdperson_toggle" or cmd == "thirdperson_view") then
             local ply = LocalPlayer()
             if IsValid(ply) and not table.IsEmpty(FP_Zones) and not IsInForceFPZone(ply) then
@@ -217,7 +211,6 @@ if CLIENT then
         return oldRunConsoleCommand(cmd, ...)
     end
     
-    -- Check every frame if player enters/exits zones
     hook.Add("Think", "ForceFP_ZoneCheck", function()
         local ply = LocalPlayer()
         if not IsValid(ply) then return end
@@ -229,18 +222,16 @@ if CLIENT then
 
         local inZone = IsInForceFPZone(ply)
         
-        -- Player just left a zone - force third person off
         if wasInZone and not inZone then
-            print("[ForceFP] Player left zone - forcing first person")
+            --print("[ForceFP] Player left zone - forcing first person")
             allowInternalCommand = true
             RunConsoleCommand("thirdperson_view", "0")
             allowInternalCommand = false
-            chat.AddText(Color(255,100,100), "[ForceFP] ", Color(255,255,255), "Forced to first person!")
+            --chat.AddText(Color(255,100,100), "[ForceFP] ", Color(255,255,255), "Forced to first person!")
         end
         
-        -- Player just entered a zone
         if not wasInZone and inZone then
-            print("[ForceFP] Player entered zone")
+            --print("[ForceFP] Player entered zone")
             chat.AddText(Color(100,255,100), "[ForceFP] ", Color(255,255,255), "Third person available!")
         end
         
